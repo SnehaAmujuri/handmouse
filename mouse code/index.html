@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Mouse Control</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
+        .container { text-align: center; }
+        .btn { padding: 12px 24px; color: #fff; background-color: #007bff; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; }
+        .btn:hover { background-color: #0056b3; }
+        .footer { margin-top: 20px; font-size: 14px; }
+        .footer a { color: #007bff; text-decoration: none; margin: 0 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Control Your Mouse with Hand Gestures</h1>
+        <button class="btn" onclick="startHandMouse()">Start Gesture Control</button>
+        <div class="footer">
+            <p>Created by Sneha Deepika</p>
+            <a href="https://www.linkedin.com/in/sneha-deepika" target="_blank">LinkedIn</a>
+            <a href="https://github.com/snehaamujri" target="_blank">GitHub</a>
+        </div>
+    </div>
+
+    <script>
+        function startHandMouse() {
+            fetch('/run-script', { method: 'POST' })
+                .then(response => alert('Gesture control started!'))
+                .catch(error => alert('Failed to start: ' + error));
+        }
+    </script>
+</body>
+</html>
