@@ -1,7 +1,6 @@
-# app.py
-from flask import Flask, jsonify
-import subprocess
+from flask import Flask, render_template, jsonify
 import os
+import subprocess
 
 app = Flask(__name__)
 
@@ -11,6 +10,11 @@ def start_handmouse():
     script_path = os.path.join(os.path.dirname(__file__), 'handmouse.py')
     subprocess.Popen(['python3', script_path])
     return jsonify({"status": "Hand mouse script started"})
+
+@app.route('/home', methods=['GET'])
+def home():
+    # Render the index.html file
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
